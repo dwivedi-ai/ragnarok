@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: allsolve-ai
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: GOOGLE_VISION_API_ENDPOINT
+        sync: false
+      - key: GOOGLE_VISION_CREDENTIALS_PATH
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
